@@ -17,6 +17,11 @@ require get_template_directory() . '/inc/autoloader.php';
  */
 new Shoestrap_Init();
 
+function shoestrap_templates() {
+	$shoestrap = Shoestrap_Template::get_instance();
+	return $shoestrap;
+}
+
 if ( ! function_exists( 'shoestrap_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.

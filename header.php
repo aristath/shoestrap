@@ -1,10 +1,9 @@
 <?php
 
-new Shoestrap_Template( array(
-	'id'       => 'ss-site-branding',
-	'template' => locate_template( 'views/site-branding.php' ),
-	'data'     => Shoestrap_Data::get_data(),
-	'element'  => '#site-branding',
+shoestrap_templates()->add_template( array(
+	'tmpl'    => 'ss-site-branding',
+	'path'    => locate_template( 'views/site-branding.php' ),
+	'element' => '#site-branding',
 ) );
 
 /**
