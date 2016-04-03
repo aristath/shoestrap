@@ -42,6 +42,7 @@ class Shoestrap_Data_Conditionals extends Shoestrap_Data {
 			'is_multisite'         => is_multisite(),
 			'is_main_site'         => is_main_site(),
 			'is_user_logged_in'    => is_user_logged_in(),
+			'is_customize_preview' => is_customize_preview(),
 		);
 		parent::$data = wp_parse_args( parent::$data, $conditionals );
 

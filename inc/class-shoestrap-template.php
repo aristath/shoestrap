@@ -24,7 +24,7 @@ class Shoestrap_Template {
 		<script type="text/javascript">
 			jQuery( document ).ready( function() {
 				var post_template = wp.template( '<?php echo $this->args['id']; ?>' );
-				jQuery( '.site-content' ).append( post_template( <?php echo wp_json_encode( $this->args['data'] ); ?> ) );
+				jQuery( '<?php echo $this->args['element']; ?>' ).append( post_template( <?php echo wp_json_encode( $this->args['data'] ); ?> ) );
 			} );
 		</script>
 		<?php

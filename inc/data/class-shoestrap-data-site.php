@@ -8,7 +8,7 @@ class Shoestrap_Data_Site extends Shoestrap_Data {
 			'id'                   => get_current_blog_id(),
 			'url'                  => get_bloginfo( 'url' ),
 			'wpurl'                => get_bloginfo( 'wpurl' ),
-			'description'          => get_bloginfo( 'description' ),
+			'description'          => get_bloginfo( 'description', 'display' ),
 			'rdf_url'              => get_bloginfo( 'rdf_url' ),
 			'rss_url'              => get_bloginfo( 'rss_url' ),
 			'rss2_url'             => get_bloginfo( 'rss2_url' ),
