@@ -24,7 +24,6 @@ class Shoestrap_Init {
 		new Shoestrap_Data_Posts();
 		new Shoestrap_Data_Post_Class();
 		new Shoestrap_Data_Title();
-		var_dump( $this->data );
 	}
 
 	public function template_underscore_script() {
@@ -39,7 +38,7 @@ class Shoestrap_Init {
 			jQuery( document ).ready( function() {
 				<?php foreach ( $templates as $tmpl => $args ) : ?>
 					var post_template = wp.template( '<?php echo $tmpl; ?>' );
-					jQuery( '<?php echo $args['element']; ?>' ).append( post_template( <?php echo wp_json_encode( $data ); ?> ) );
+					jQuery( '<?php echo $args['element']; ?>' ).append( post_template( <?php echo wp_json_encode( $args['data'] ); ?> ) );
 				<?php endforeach; ?>
 			} );
 		</script>

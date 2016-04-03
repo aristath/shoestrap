@@ -55,6 +55,7 @@ class Shoestrap_Template {
 			'tmpl'    => '',
 			'path'    => '',
 			'element' => '',
+			'data'    => array(),
 		);
 		$template_args = wp_parse_args( $template_args, $defaults );
 
@@ -62,7 +63,7 @@ class Shoestrap_Template {
 		self::error_handler( $template_args );
 
 		// Early exit if we don't have all the required arguments.
-		if ( empty( $template_args['tmpl'] ) || empty( $template_args['path'] ) || empty( $template_args['element'] ) ) {
+		if ( empty( $template_args['tmpl'] ) || empty( $template_args['path'] ) || empty( $template_args['element'] ) || empty( $template_args['data'] ) ) {
 			return;
 		}
 		// Sanitize the 'tmpl' argument
@@ -87,7 +88,7 @@ class Shoestrap_Template {
 			if ( empty( $value ) ) {
 				self::$errors[] = new WP_Error(
 					'missing_shoestrap_template_arg' . $key,
-					sprintf( esc_html__( 'Missing %s argument when calling Shoestrap_Template::render method.', 'shoestrap' ), $key )
+					sprintf( esc_html__( 'Missing value for the %s argument when calling Shoestrap_Template::render method.', 'shoestrap' ), $key )
 				);
 			}
 		}

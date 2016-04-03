@@ -4,6 +4,14 @@ shoestrap_templates()->add_template( array(
 	'tmpl'    => 'ss-site-branding',
 	'path'    => locate_template( 'views/site-branding.php' ),
 	'element' => '#site-branding',
+	'data'    => array(
+		'is_front_page'        => is_front_page(),
+		'is_home'              => is_home(),
+		'name'                 => get_bloginfo( 'name' ),
+		'description'          => get_bloginfo( 'description', 'display' ),
+		'url'                  => get_bloginfo( 'url' ),
+		'is_customize_preview' => is_customize_preview(),
+	),
 ) );
 
 /**
