@@ -7,6 +7,11 @@
  * @package Shoestrap
  */
 
+/**
+ * Load autoloader file.
+ */
+require get_template_directory() . '/inc/autoloader.php';
+
 if ( ! function_exists( 'shoestrap_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
