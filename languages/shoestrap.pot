@@ -153,7 +153,7 @@ msgstr ""
 
 #. translators: %s: Name of current post
 #: inc/template-tags.php:71
-#: template-parts/content-page.php:33
+#: content-page.php:33
 #, php-format
 #@ _s
 msgid "Edit %s"
@@ -165,35 +165,35 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-none.php:14
+#: content-none.php:14
 #@ _s
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:21
+#: content-none.php:21
 #, php-format
 #@ _s
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:25
+#: content-none.php:25
 #@ _s
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:31
+#: content-none.php:31
 #@ _s
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22
-#: template-parts/content.php:38
+#: content-page.php:22
+#: content.php:38
 #@ _s
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. 
-#: template-parts/content.php:33
+#: content.php:33
 #, php-format
 #@ _s
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
