@@ -55,7 +55,6 @@ class Shoestrap_Template {
 			'tmpl'    => '',
 			'path'    => '',
 			'element' => '',
-			'data'    => array(),
 		);
 		$template_args = wp_parse_args( $template_args, $defaults );
 
@@ -70,6 +69,10 @@ class Shoestrap_Template {
 		$template_args['tmpl'] = esc_attr( $template_args['tmpl'] );
 		// make sure the path is properly formatted
 		$template_args['path'] = wp_normalize_path( $template_args['path'] );
+		// If no data has been defined, set it to false
+		if ( ! isset( $template_args['data'] ) || empty( $template_args['data'] ) ) {
+			$template_args['data'] = false;
+		}
 		// Add our template to the global $args var.
 		self::$args[ $template_args['tmpl'] ] = $template_args;
 

@@ -9,7 +9,7 @@ class Shoestrap_Init {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 		add_action( 'shoestrap/data/before', array( $this, 'add_data' ) );
 		add_action( 'wp_footer', array( $this, 'templates_underscore' ), 26 );
-		add_action( 'wp_footer', array( $this, 'template_underscore_script' ), 25 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'template_underscore_script' ), 25 );
 
 	}
 
@@ -30,19 +30,27 @@ class Shoestrap_Init {
 		// Early exit if we have no templates to process.
 		$templates = shoestrap_templates()->get_templates();
 		if ( empty( $templates ) ) {
-			return;
+			// return;
 		}
+
+		// Register the script
+		wp_register_script( 'shoestrap-underscore-templating', get_template_directory_uri() . '/js/_templating.js', array( 'jquery' ), false, true );
+
+		// Get the global data
 		$data = Shoestrap_Data::get_data();
-		?>
-		<script type="text/javascript">
-			jQuery( document ).ready( function() {
-				<?php foreach ( $templates as $tmpl => $args ) : ?>
-					var post_template = wp.template( '<?php echo $tmpl; ?>' );
-					jQuery( '<?php echo $args['element']; ?>' ).append( post_template( <?php echo wp_json_encode( $args['data'] ); ?> ) );
-				<?php endforeach; ?>
-			} );
-		</script>
-		<?php
+
+		// Build the array of arguments that will be passed-along to the script
+		$shoestrap_data = array(
+			'global_data' => $data,
+			'templates'   => $templates,
+		);
+
+		// pass our data to the script using the wp_localize_script function
+		wp_localize_script( 'shoestrap-underscore-templating', 'shoestrap', $shoestrap_data );
+
+		// Enqueued script with localized data.
+		wp_enqueue_script( 'shoestrap-underscore-templating' );
+
 	}
 
 	public function templates_underscore() {
