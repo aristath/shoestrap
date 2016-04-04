@@ -1,19 +1,4 @@
 <?php
-
-shoestrap_templates()->add_template( array(
-	'tmpl'    => 'ss-site-branding',
-	'path'    => locate_template( 'views/site-branding.php' ),
-	'element' => '#site-branding',
-	'data'    => array(
-		'is_front_page'        => is_front_page(),
-		'is_home'              => is_home(),
-		'name'                 => get_bloginfo( 'name' ),
-		'description'          => get_bloginfo( 'description', 'display' ),
-		'url'                  => get_bloginfo( 'url' ),
-		'is_customize_preview' => is_customize_preview(),
-	),
-) );
-
 /**
  * The header for our theme.
  *
@@ -39,13 +24,26 @@ shoestrap_templates()->add_template( array(
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'shoestrap' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div id="site-branding" class="site-branding"></div>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'shoestrap' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+	<header id="masthead" class="site-header" role="banner"></header><!-- #masthead -->
 
 	<div id="content" class="site-content">
+
+<?php
+/**
+ * Call underscore.js templates
+ */
+shoestrap_templates()->add_template( array(
+	'tmpl'    => 'shoestrap-site-header',
+	'path'    => locate_template( 'views/site-header.php' ),
+	'element' => '#masthead',
+	'data'    => array(
+		'is_front_page'        => is_front_page(),
+		'is_home'              => is_home(),
+		'name'                 => get_bloginfo( 'name' ),
+		'description'          => get_bloginfo( 'description', 'display' ),
+		'url'                  => get_bloginfo( 'url' ),
+		'is_customize_preview' => is_customize_preview(),
+		'primary_menu_label'   => esc_html__( 'Primary Menu', 'shoestrap' ),
+		'menu'                 => Shoestrap_Data_Menu::get_menu( 'primary' ),
+	),
+) );
