@@ -20,4 +20,3 @@
 		<# }); #>
 	</ul>
 </nav><!-- #site-navigation -->
-<# console.log( data ); #>

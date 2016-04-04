@@ -9,39 +9,24 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>></article>
+<?php
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php shoestrap_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+/**
+ * Call the underscore.js template
+ */
+$data = array();
+$data['is_single']  = is_single();
+$data['post_title'] = get_the_title();
+$data['permalink']  = get_permalink();
+$data['post_type']  = get_post_type();
+$data['posted_on']  = shoestrap_posted_on();
+$data['content']    = apply_filters( 'the_content', get_the_content() );
+$data['entry_footer'] = shoestrap_entry_footer();
 
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'shoestrap' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'shoestrap' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php shoestrap_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+shoestrap_templates()->add_template( array(
+	'tmpl'    => 'shoestrap-post-content-' . get_the_ID(),
+	'path'    => locate_template( 'views/content.php' ),
+	'element' => '#post-' . get_the_ID(),
+	'data'    => $data,
+) );
