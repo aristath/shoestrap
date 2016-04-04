@@ -41,7 +41,7 @@ shoestrap_templates()->add_template( array(
 		'is_home'              => is_home(),
 		'name'                 => get_bloginfo( 'name' ),
 		'description'          => get_bloginfo( 'description', 'display' ),
-		'url'                  => get_bloginfo( 'url' ),
+		'url'                  => home_url(),
 		'is_customize_preview' => is_customize_preview(),
 		'primary_menu_label'   => esc_html__( 'Primary Menu', 'shoestrap' ),
 		'menu'                 => Shoestrap_Data_Menu::get_menu( 'primary' ),
