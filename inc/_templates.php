@@ -1,6 +1,10 @@
 <?php
 
-shoestrap_templates()->add_template( array(
+// Instantiate the templates class
+$_template = Shoestrap_Template::get_instance();
+
+// Add template for the header
+$_template->add_template( array(
 	'tmpl'    => 'shoestrap-site-header',
 	'path'    => locate_template( 'views/site-header.php' ),
 	'element' => '#masthead',
@@ -14,4 +18,11 @@ shoestrap_templates()->add_template( array(
 		'primary_menu_label'   => esc_html__( 'Primary Menu', 'shoestrap' ),
 		'menu'                 => Shoestrap_Data_Menu::get_menu( 'primary' ),
 	),
+) );
+
+// Add template for single posts
+$_template->add_template( array(
+	'tmpl'    => 'shoestrap-single-post',
+	'path'    => locate_template( 'views/single.php' ),
+	'element' => '#main.site-main',
 ) );

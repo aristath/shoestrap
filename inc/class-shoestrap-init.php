@@ -28,7 +28,8 @@ class Shoestrap_Init {
 
 	public function template_underscore_script() {
 		// Early exit if we have no templates to process.
-		$templates = shoestrap_templates()->get_templates();
+		$_template = Shoestrap_Template::get_instance();
+		$templates = $_template->get_templates();
 		if ( empty( $templates ) ) {
 			// return;
 		}
@@ -41,8 +42,8 @@ class Shoestrap_Init {
 
 		// Build the array of arguments that will be passed-along to the script
 		$shoestrap_data = array(
-			'global_data' => $data,
-			'templates'   => $templates,
+			'data'      => $data,
+			'templates' => $templates,
 		);
 
 		// pass our data to the script using the wp_localize_script function
@@ -56,7 +57,8 @@ class Shoestrap_Init {
 	public function templates_underscore() {
 
 		// Early exit if we have no templates to process.
-		$templates = shoestrap_templates()->get_templates();
+		$_template = Shoestrap_Template::get_instance();
+		$templates = $_template->get_templates();
 		if ( empty( $templates ) ) {
 			return;
 		}

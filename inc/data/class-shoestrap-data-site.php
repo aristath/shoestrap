@@ -6,7 +6,7 @@ class Shoestrap_Data_Site extends Shoestrap_Data {
 
 		parent::$data['site'] = array(
 			'id'                   => get_current_blog_id(),
-			'url'                  => site_url(),
+			'site_url'             => site_url(),
 			'description'          => get_bloginfo( 'description', 'display' ),
 			'rdf_url'              => get_bloginfo( 'rdf_url' ),
 			'rss_url'              => get_bloginfo( 'rss_url' ),
@@ -21,6 +21,7 @@ class Shoestrap_Data_Site extends Shoestrap_Data {
 			'version'              => get_bloginfo( 'version' ),
 			'language'             => get_bloginfo( 'language' ),
 			'name'                 => get_bloginfo( 'name' ),
+			'is_customize_preview' => is_customize_preview(),
 		);
 
 	}

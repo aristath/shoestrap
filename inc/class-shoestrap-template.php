@@ -62,7 +62,7 @@ class Shoestrap_Template {
 		self::error_handler( $template_args );
 
 		// Early exit if we don't have all the required arguments.
-		if ( empty( $template_args['tmpl'] ) || empty( $template_args['path'] ) || empty( $template_args['element'] ) || empty( $template_args['data'] ) ) {
+		if ( empty( $template_args['tmpl'] ) || empty( $template_args['path'] ) || empty( $template_args['element'] ) ) {
 			return;
 		}
 		// Sanitize the 'tmpl' argument
