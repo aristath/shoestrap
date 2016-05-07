@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<?php Shoestrap::add_view(
+		<?php Shoestrap_Views::add_view(
 			'main',
 			array(
 				'tmpl'  => 'shoestrap-single-post',

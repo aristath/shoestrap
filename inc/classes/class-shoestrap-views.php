@@ -21,8 +21,29 @@ class Shoestrap_Views {
 		$this->views = $this->add_views();
 
 		// Add the view.
-		$this->add_view( $args );
+		$this->add_from_view( $args );
 
+	}
+
+	/**
+	 * Renders a template element and adds the necessary views.
+	 *
+	 * @static
+	 * @access public
+	 * @param string $element The element to be rendered.
+	 * @param array  $args    The element arguments.
+	 * @return void
+	 */
+	public static function add_view( $element = 'div', $args = array() ) {
+		$properties = array();
+		foreach ( $args as $key => $value ) {
+			if ( 'tmpl' === $key ) {
+				continue;
+			}
+			$properties[] = $key . '="' . $value . '"';
+		}
+		echo '<' . $element . ' ' . implode( ' ', $properties ) . '></' . $element . '>';
+		new self( $args );
 	}
 
 	/**
@@ -30,7 +51,7 @@ class Shoestrap_Views {
 	 *
 	 * @param array $args The arguments for our view.
 	 */
-	private function add_view( $args ) {
+	private function add_from_view( $args ) {
 
 		// Early exit if 'tmpl' or 'id' are not set.
 		if ( ! isset( $args['tmpl'] ) || ! isset( $args['id'] ) ) {

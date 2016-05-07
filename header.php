@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'shoestrap' ); ?></a>
-	<?php Shoestrap::add_view(
+	<?php Shoestrap_Views::add_view(
 		'header',
 		array(
 			'tmpl'  => 'shoestrap-site-header',
