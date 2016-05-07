@@ -30,7 +30,7 @@ class Shoestrap_Init {
 	public function enqueue() {
 		wp_enqueue_script(
 			'shoestrap-underscore-templating',
-			get_template_directory_uri() . '/js/_templating.js',
+			trailingslashit( get_template_directory_uri() ) . 'assets/js/_templating.js',
 			array( 'jquery', 'wp-util' ),
 			false,
 			true

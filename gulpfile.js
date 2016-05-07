@@ -25,21 +25,6 @@ gulp.task( 'styles', function() {
 		.pipe( gulp.dest( './assets/css/' ) );
 });
 
-// JSHint & concat JavaScript
-gulp.task( 'site-js', function() {
-	return gulp.src([
-
-		// Grab your custom scripts
-		'./assets/js/scripts/*.js'
-	] )
-	.pipe( plumber() )
-	.pipe( jshint() )
-	.pipe( jshint.reporter( 'jshint-stylish' ) )
-	.pipe( concat( 'scripts.js' ) )
-	.pipe( gulp.dest( './assets/js' ) )
-	.pipe( gulp.dest( './assets/js' ) );
-});
-
 // JSHint & concat Foundation JavaScript
 gulp.task( 'foundation-js', function() {
 	return gulp.src([

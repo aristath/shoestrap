@@ -124,12 +124,28 @@ add_action( 'widgets_init', 'shoestrap_widgets_init' );
  * Enqueue scripts and styles.
  */
 function shoestrap_scripts() {
-	wp_enqueue_style( 'shoestrap-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'shoestrap-app', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/app.css' );
-
-	wp_enqueue_script( 'shoestrap-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'shoestrap-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_style(
+		'shoestrap-style',
+		get_stylesheet_uri()
+	);
+	wp_enqueue_style(
+		'shoestrap-app',
+		trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/app.css'
+	);
+	wp_enqueue_script(
+		'shoestrap-navigation',
+		trailingslashit( get_template_directory_uri() ) . 'assets/js/navigation.js',
+		array(),
+		false,
+		true
+	);
+	wp_enqueue_script(
+		'shoestrap-skip-link-focus-fix',
+		trailingslashit( get_template_directory_uri() ) . 'assets/js/skip-link-focus-fix.js',
+		array(),
+		false,
+		true
+	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
