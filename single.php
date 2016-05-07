@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area columns large-<?php echo absint( get_theme_mod( 'content_columns_width', 8 ) ); ?>">
 		<?php Shoestrap_Views::add_view(
 			'main',
 			array(
