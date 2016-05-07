@@ -3516,3 +3516,13 @@ table.hover tr:nth-of-type(even):hover {
 
 .top-bar ul {
   background-color: transparent; }
+
+h1.site-title,
+span.site-title a,
+.menu-text {
+  font-size: 1rem;
+  margin-bottom: 0;
+  font-weight: normal; }
+
+.menu-text {
+  font-size: .75rem; }
