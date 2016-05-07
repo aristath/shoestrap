@@ -17,3 +17,11 @@ span.site-title a,
 .menu-text {
 	font-size: .75rem;
 }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	@include button-base;
+	@include button-style;
+}

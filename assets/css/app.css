@@ -3526,3 +3526,36 @@ span.site-title a,
 
 .menu-text {
   font-size: .75rem; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 0.85em 1em;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  background-color: #2199e8;
+  color: #fefefe; }
+  [data-whatinput='mouse'] button, [data-whatinput='mouse']
+  html input[type="button"], [data-whatinput='mouse']
+  input[type="reset"], [data-whatinput='mouse']
+  input[type="submit"] {
+    outline: 0; }
+  button:hover, button:focus,
+  html input[type="button"]:hover,
+  html input[type="button"]:focus,
+  input[type="reset"]:hover,
+  input[type="reset"]:focus,
+  input[type="submit"]:hover,
+  input[type="submit"]:focus {
+    background-color: #1583cc;
+    color: #fefefe; }
