@@ -3517,18 +3517,24 @@ table.hover tr:nth-of-type(even):hover {
 .top-bar ul {
   background-color: transparent; }
 
-.is-dropdown-submenu {
+.top-bar .custom-logo-link {
+  padding: 0; }
+  .top-bar .custom-logo-link img {
+    max-height: 1rem;
+    width: auto; }
+
+.top-bar .is-dropdown-submenu {
   border: 1px solid transparent; }
 
-h1.site-title,
-span.site-title a,
-.menu-text {
+.top-bar h1.site-title,
+.top-bar span.site-title a,
+.top-bar .menu-text {
   font-size: 1rem;
   margin-bottom: 0;
   margin-top: 0;
   font-weight: normal; }
 
-.menu-text {
+.top-bar .menu-text {
   font-size: .75rem; }
 
 button,

@@ -55,3 +55,24 @@ function shoestrap_special_nav_class( $classes, $item, $args, $depth ) {
 	return $classes;
 }
 add_filter( 'nav_menu_css_class' , 'shoestrap_special_nav_class' , 10 , 4 );
+
+function shoestrap_the_custom_logo() {
+
+	if ( function_exists( 'the_custom_logo' ) ) {
+		$branding = get_custom_logo();
+		if ( is_front_page() && is_home() ) {
+			$branding .= '<h1 class="site-title screen-reader-text"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
+		} else {
+			$branding .= '<span class="site-title screen-reader-text"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
+		}
+	}
+	if ( ! $branding ) {
+		if ( is_front_page() && is_home() ) {
+			$branding = '<h1 class="site-title"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
+		} else {
+			$branding = '<span class="site-title"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
+		}
+	}
+	echo $branding;
+
+}

@@ -3,11 +3,7 @@
 		<div id="site-branding" class="top-bar-left site-branding">
 			<ul class="dropdown menu" data-dropdown-menu>
 				<li class="menu-text">
-					<# if ( data.is_front_page && data.is_home ) { #>
-						<h1 class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></h1>
-					<# } else { #>
-						<span class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></span>
-					<# } #>
+					<?php shoestrap_the_custom_logo(); ?>
 				</li>
 				<# if ( data.description || data.is_customize_preview ) { #>
 					<li class="menu-text site-description">{{ data.description }}</li>

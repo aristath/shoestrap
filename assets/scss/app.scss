@@ -2,24 +2,31 @@
 @import '../vendor/foundation-sites/scss/foundation';
 @include foundation-everything(false);
 
-.top-bar ul {
-	background-color: transparent;
-}
-.is-dropdown-submenu {
-	border: 1px solid transparent;
-}
-
-h1.site-title,
-span.site-title a,
-.menu-text {
-	font-size: 1rem;
-	margin-bottom: 0;
-	margin-top: 0;
-	font-weight: normal;
-}
-
-.menu-text {
-	font-size: .75rem;
+.top-bar {
+	ul {
+		background-color: transparent;
+	}
+	.custom-logo-link {
+		padding: 0;
+		img {
+			max-height: 1rem;
+			width: auto;
+		}
+	}
+	.is-dropdown-submenu {
+		border: 1px solid transparent;
+	}
+	h1.site-title,
+	span.site-title a,
+	.menu-text {
+		font-size: 1rem;
+		margin-bottom: 0;
+		margin-top: 0;
+		font-weight: normal;
+	}
+	.menu-text {
+		font-size: .75rem;
+	}
 }
 
 button,
