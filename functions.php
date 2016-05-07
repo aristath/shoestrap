@@ -125,6 +125,7 @@ add_action( 'widgets_init', 'shoestrap_widgets_init' );
  */
 function shoestrap_scripts() {
 	wp_enqueue_style( 'shoestrap-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'shoestrap-app', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/app.css' );
 
 	wp_enqueue_script( 'shoestrap-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
