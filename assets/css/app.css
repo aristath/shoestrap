@@ -3559,3 +3559,6 @@ input[type="submit"] {
   input[type="submit"]:focus {
     background-color: #1583cc;
     color: #fefefe; }
+
+#content {
+  margin-top: 2rem; }

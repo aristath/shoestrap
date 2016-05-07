@@ -51,6 +51,8 @@ html {
 
 body {
 	margin: 0;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 article,

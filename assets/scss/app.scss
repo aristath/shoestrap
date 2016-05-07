@@ -25,3 +25,7 @@ input[type="submit"] {
 	@include button-base;
 	@include button-style;
 }
+
+#content {
+	margin-top: 2rem;
+}
