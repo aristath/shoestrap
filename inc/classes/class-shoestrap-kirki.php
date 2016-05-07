@@ -111,7 +111,7 @@ class Shoestrap_Kirki {
 			// Make sure we add the config_id to the field itself.
 			// This will make it easier to get the value when generating the CSS later.
 			if ( ! isset( $args['kirki_config'] ) ) {
-				$args['kirki_config'] = $config_id;
+				$args['kirki_config'] = 'shoestrap';
 			}
 			self::$fields[ $args['settings'] ] = $args;
 		}
@@ -163,7 +163,7 @@ class Shoestrap_Kirki {
 			}
 
 			// Get the value of this field
-			$value = self::get_option( $field['kirki_config'], $field['settings'] );
+			$value = get_theme_mod( $field['settings'], $field['default'] );
 
 			// start parsing the output arguments of the field
 			foreach ( $field['output'] as $output ) {

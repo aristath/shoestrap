@@ -9,7 +9,7 @@ Shoestrap_Kirki::add_field( array(
 	'priority'    => 10,
 	'transport'   => 'auto',
 	'choices'     => array(
-		'colors' => Kirki_Helper::get_material_design_colors( 'all' ),
+		'colors' => ( class_exists( 'Kirki_Helper' ) ) ? Kirki_Helper::get_material_design_colors( 'all' ) : array(),
 		'size'   => 32,
 	),
 	'transport'   => 'refresh',
