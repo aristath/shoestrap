@@ -65,20 +65,16 @@ function shoestrap_extra_styles( $css ) {
 	// Modify button text color depending on the primary color.
 	if ( 50 < $primary_color->lightness ) {
 		$css['global']['.top-bar li a, .top-bar li a:active, .top-bar li a:hover, .top-bar li a:visited, .top-bar li.menu-text']['color'] = '#333';
-		$css['global']['.menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#333';
+		$css['global']['.top-bar .menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#333';
+	} else {
+		$css['global']['.top-bar li a, .top-bar li a:active, .top-bar li a:hover, .top-bar li a:visited, .top-bar li.menu-text']['color'] = '#fff';
+		$css['global']['.top-bar .menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#fff';
 	}
 
 	// Modify the menu items color depending on the background.
+	$header_bg_color_lightness = $header_bg_color->lightness;
 	if ( 1 > $header_bg_color->alpha ) {
-		$header_bg_color = ariColor::newColor(
-			array(
-				'red'   => ( $header_bg_color->red + $bg_color->red ) / 2,
-				'green' => ( $header_bg_color->green + $bg_color->green ) / 2,
-				'blue'  => ( $header_bg_color->blue + $bg_color->blue ) / 2,
-				'alpha' => ( $header_bg_color->alpha + 1 ) / 2,
-			),
-			'auto'
-		);
+		$header_bg_color_lightness = ( ( $header_bg_color->lightness * $header_bg_color->alpha ) + $bg_color->lightness ) / 2;
 	}
 	if ( 50 > $header_bg_color->lightness ) {
 		$css['global']['.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after']['border-color'] = '#fff transparent transparent';
