@@ -12,11 +12,12 @@
 
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">{{ data.primary_menu_label }}</button>
-	<ul class="primary-menu">
-		<# _.each( data.menu, function( menu_item, id ) { #>
-			<li class="menu-{{ id }} object-{{ menu_item.object_id }}">
-				<a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
-			</li>
-		<# }); #>
-	</ul>
+	<?php
+	// Renders the menu.
+	wp_nav_menu( array(
+		'theme_location' => 'primary',
+		'menu_id'        => 'primary-menu',
+		'menu_class'     => 'menu',
+	) );
+	?>
 </nav><!-- #site-navigation -->

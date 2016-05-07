@@ -76,7 +76,7 @@ class Shoestrap_Views {
 		$views = array(
 			// Add template for the header
 			'shoestrap-site-header' => array(
-				'path'    => locate_template( 'views/site-header.php' ),
+				'path'    => locate_template( 'views/header/simple.php' ),
 				'data'    => array(
 					'is_front_page'        => is_front_page(),
 					'is_home'              => is_home(),
