@@ -43,27 +43,27 @@ gulp.task( 'site-js', function() {
 // JSHint & concat Foundation JavaScript
 gulp.task( 'foundation-js', function() {
 	return gulp.src([
-		'./vendor/foundation-sites/js/foundation.core.js',
-		'./vendor/foundation-sites/js/foundation.util.*.js',
-		'./vendor/foundation-sites/js/foundation.abide.js',
-		'./vendor/foundation-sites/js/foundation.accordion.js',
-		'./vendor/foundation-sites/js/foundation.accordionMenu.js',
-		'./vendor/foundation-sites/js/foundation.drilldown.js',
-		'./vendor/foundation-sites/js/foundation.dropdown.js',
-		'./vendor/foundation-sites/js/foundation.dropdownMenu.js',
-		'./vendor/foundation-sites/js/foundation.equalizer.js',
-		'./vendor/foundation-sites/js/foundation.interchange.js',
-		'./vendor/foundation-sites/js/foundation.magellan.js',
-		'./vendor/foundation-sites/js/foundation.offcanvas.js',
-		'./vendor/foundation-sites/js/foundation.orbit.js',
-		'./vendor/foundation-sites/js/foundation.responsiveMenu.js',
-		'./vendor/foundation-sites/js/foundation.responsiveToggle.js',
-		'./vendor/foundation-sites/js/foundation.reveal.js',
-		'./vendor/foundation-sites/js/foundation.slider.js',
-		'./vendor/foundation-sites/js/foundation.sticky.js',
-		'./vendor/foundation-sites/js/foundation.tabs.js',
-		'./vendor/foundation-sites/js/foundation.toggler.js',
-		'./vendor/foundation-sites/js/foundation.tooltip.js'
+		'./assets/vendor/foundation-sites/js/foundation.core.js',
+		'./assets/vendor/foundation-sites/js/foundation.util.*.js',
+		'./assets/vendor/foundation-sites/js/foundation.abide.js',
+		'./assets/vendor/foundation-sites/js/foundation.accordion.js',
+		'./assets/vendor/foundation-sites/js/foundation.accordionMenu.js',
+		'./assets/vendor/foundation-sites/js/foundation.drilldown.js',
+		'./assets/vendor/foundation-sites/js/foundation.dropdown.js',
+		'./assets/vendor/foundation-sites/js/foundation.dropdownMenu.js',
+		'./assets/vendor/foundation-sites/js/foundation.equalizer.js',
+		'./assets/vendor/foundation-sites/js/foundation.interchange.js',
+		'./assets/vendor/foundation-sites/js/foundation.magellan.js',
+		'./assets/vendor/foundation-sites/js/foundation.offcanvas.js',
+		'./assets/vendor/foundation-sites/js/foundation.orbit.js',
+		'./assets/vendor/foundation-sites/js/foundation.responsiveMenu.js',
+		'./assets/vendor/foundation-sites/js/foundation.responsiveToggle.js',
+		'./assets/vendor/foundation-sites/js/foundation.reveal.js',
+		'./assets/vendor/foundation-sites/js/foundation.slider.js',
+		'./assets/vendor/foundation-sites/js/foundation.sticky.js',
+		'./assets/vendor/foundation-sites/js/foundation.tabs.js',
+		'./assets/vendor/foundation-sites/js/foundation.toggler.js',
+		'./assets/vendor/foundation-sites/js/foundation.tooltip.js'
 	])
 	.pipe( concat( 'foundation.js' ) )
 	.pipe( gulp.dest( './assets/js' ) )
@@ -73,7 +73,7 @@ gulp.task( 'foundation-js', function() {
 // Update Foundation with Bower and save to /vendor
 gulp.task( 'bower', function() {
 	return bower({ cmd: 'update' })
-	.pipe( gulp.dest( 'vendor/' ) );
+	.pipe( gulp.dest( 'assets/vendor/' ) );
 });
 
 // Watch files for changes (without Browser-Sync)
@@ -86,7 +86,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( './assets/js/scripts/*.js', ['site-js'] );
 
 	// Watch foundation-js files
-	gulp.watch( './vendor/foundation-sites/js/*.js', ['foundation-js'] );
+	gulp.watch( './assets/vendor/foundation-sites/js/*.js', ['foundation-js'] );
 
 });
 
