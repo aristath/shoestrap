@@ -1,23 +1,37 @@
-<div id="site-branding" class="site-branding">
-	<# if ( data.is_front_page && data.is_home ) { #>
-		<h1 class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></h1>
-	<# } else { #>
-		<p class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></p>
-	<# } #>
-	<# if ( data.description || data.is_customize_preview ) { #>
-		<p class="site-description">{{ data.description }}</p>
-	<# } #>
-
-</div>
-
 <nav id="site-navigation" class="main-navigation" role="navigation">
-	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">{{ data.primary_menu_label }}</button>
-	<?php
-	// Renders the menu.
-	wp_nav_menu( array(
-		'theme_location' => 'primary',
-		'menu_id'        => 'primary-menu',
-		'menu_class'     => 'menu',
-	) );
-	?>
+	<div class="top-bar">
+		<div id="site-branding" class="top-bar-left site-branding">
+			<ul class="dropdown menu" data-dropdown-menu>
+				<li class="menu-text">
+					<# if ( data.is_front_page && data.is_home ) { #>
+						<h1 class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></h1>
+					<# } else { #>
+						<span class="site-title"><a href="{{ data.url }}" rel="home">{{ data.name }}</a></span>
+					<# } #>
+				</li>
+				<# if ( data.description || data.is_customize_preview ) { #>
+					<li class="menu-text site-description">{{ data.description }}</li>
+				<# } #>
+			</ul>
+		</div>
+		<div class="top-bar-right">
+			<?php
+			// Add menu.
+			wp_nav_menu( array(
+				'container'      => false,
+				'menu_class'     => 'vertical large-horizontal menu dropdown',
+				'items_wrap'     => '
+					<ul data-responsive-toggle="primary-menu" data-hide-for="large">
+						<button class="menu-icon" type="button" data-toggle>
+							<span class="screen-reader-text">' . esc_attr__( 'Menu', 'shoestrap' ) . '</span>
+						</button>
+					</ul>
+					<ul id="%1$s" class="%2$s" data-dropdown-menu data-responsive-menu="drilldown medium-dropdown" data-disable-hover="true" data-click-open="true">%3$s</ul>',
+				'walker'         => new Shoestrap_Topbar_Menu_Walker(),
+				'theme_location' => 'primary',
+				'menu_id'        => 'primary-menu',
+			) );
+			?>
+		</div>
+	</div>
 </nav><!-- #site-navigation -->

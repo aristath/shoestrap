@@ -133,16 +133,23 @@ function shoestrap_scripts() {
 		trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/app.css'
 	);
 	wp_enqueue_script(
-		'shoestrap-navigation',
-		trailingslashit( get_template_directory_uri() ) . 'assets/js/navigation.js',
+		'shoestrap-skip-link-focus-fix',
+		trailingslashit( get_template_directory_uri() ) . 'assets/js/skip-link-focus-fix.js',
 		array(),
 		false,
 		true
 	);
 	wp_enqueue_script(
-		'shoestrap-skip-link-focus-fix',
-		trailingslashit( get_template_directory_uri() ) . 'assets/js/skip-link-focus-fix.js',
+		'foundation6',
+		trailingslashit( get_template_directory_uri() ) . 'assets/js/foundation.js',
 		array(),
+		false,
+		true
+	);
+	wp_enqueue_script(
+		'shoestrap-app',
+		trailingslashit( get_template_directory_uri() ) . 'assets/js/app.js',
+		array( 'jquery', 'foundation6' ),
 		false,
 		true
 	);
