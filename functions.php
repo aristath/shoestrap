@@ -106,7 +106,7 @@ function shoestrap_content_width() {
 	$width = 1200;
 	if ( false !== strpos( $site_width, 'em' ) ) {
 		$width = absint( $site_width ) * 16;
-	} elseif ( false !== strpos( $site_width, 'px' ) ) {var_dump('lalala');
+	} elseif ( false !== strpos( $site_width, 'px' ) ) {
 		$width = absint( $site_width );
 	}
 
