@@ -57,22 +57,18 @@ function shoestrap_special_nav_class( $classes, $item, $args, $depth ) {
 add_filter( 'nav_menu_css_class' , 'shoestrap_special_nav_class' , 10 , 4 );
 
 function shoestrap_the_custom_logo() {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
+	$site_title_classes = 'site-title';
 	if ( function_exists( 'the_custom_logo' ) ) {
-		$branding = get_custom_logo();
-		if ( is_front_page() && is_home() ) {
-			$branding .= '<h1 class="site-title screen-reader-text"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-		} else {
-			$branding .= '<span class="site-title screen-reader-text"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
+		echo get_custom_logo();
+		if ( $custom_logo_id ) {
+			$site_title_classes .= ' screen-reader-text';
 		}
 	}
-	if ( ! $branding ) {
-		if ( is_front_page() && is_home() ) {
-			$branding = '<h1 class="site-title"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-		} else {
-			$branding = '<span class="site-title"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
-		}
+	if ( is_front_page() && is_home() ) {
+		echo '<h1 class="' . $site_title_classes . '"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
+	} else {
+		echo '<span class="' . $site_title_classes . '"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
 	}
-	echo $branding;
-
 }
