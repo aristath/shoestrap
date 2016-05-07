@@ -98,7 +98,28 @@ add_action( 'after_setup_theme', 'shoestrap_setup' );
  * @global int $content_width
  */
 function shoestrap_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'shoestrap_content_width', 640 );
+
+	// Get the maximum site-width.
+	$site_width = get_theme_mod( 'content_max_width', '85rem' );
+
+	// Calculate the site-width in pixels making some reasonable assumptions.
+	$width = 1200;
+	if ( false !== strpos( $site_width, 'em' ) ) {
+		$width = absint( $site_width ) * 16;
+	} elseif ( false !== strpos( $site_width, 'px' ) ) {var_dump('lalala');
+		$width = absint( $site_width );
+	}
+
+	// Make sure the site-width is between 640 & 1600.
+	$width = min( 1600, max( 640, $width ) );
+
+	// Calculate the main content area without the sidebar.
+	$columns = get_theme_mod( 'content_columns_width', 8 );
+	if ( 12 > $columns ) {
+		$width = absint( ( $columns / 12 ) * $width - 30 );
+	}
+	// Set the content_width global.
+	$GLOBALS['content_width'] = apply_filters( 'shoestrap_content_width', $width );
 }
 add_action( 'after_setup_theme', 'shoestrap_content_width', 0 );
 
