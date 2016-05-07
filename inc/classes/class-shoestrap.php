@@ -14,6 +14,9 @@ class Shoestrap {
 	public static function add_view( $element = 'div', $args = array() ) {
 		$properties = array();
 		foreach ( $args as $key => $value ) {
+			if ( 'tmpl' === $key ) {
+				continue;
+			}
 			$properties[] = $key . '="' . $value . '"';
 		}
 		echo '<' . $element . ' ' . implode( ' ', $properties ) . '></' . $element . '>';

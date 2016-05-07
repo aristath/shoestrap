@@ -8,8 +8,8 @@ class Shoestrap_Init {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 		add_action( 'shoestrap/data/before', array( $this, 'add_data' ) );
-		add_action( 'wp_footer', array( $this, 'templates_underscore' ), 26 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'template_underscore_script' ), 25 );
+		add_action( 'wp_print_footer_scripts', array( $this, 'templates_underscore' ), 26 );
+		add_action( 'wp_print_footer_scripts', array( $this, 'template_underscore_script' ), 25 );
 
 	}
 
@@ -28,8 +28,7 @@ class Shoestrap_Init {
 
 	public function template_underscore_script() {
 
-		$_template = Shoestrap_Template::get_instance();
-		$templates = $_template->get_templates();
+		$templates = Shoestrap_Template::get_instance()->get_templates();
 
 		// Register the script
 		wp_register_script( 'shoestrap-underscore-templating', get_template_directory_uri() . '/js/_templating.js', array( 'jquery' ), false, true );
@@ -42,13 +41,13 @@ class Shoestrap_Init {
 			'data'      => $data,
 			'templates' => $templates,
 		);
-
-		// pass our data to the script using the wp_localize_script function
-		wp_localize_script( 'shoestrap-underscore-templating', 'shoestrap', $shoestrap_data );
-
-		// Enqueued script with localized data.
-		wp_enqueue_script( 'shoestrap-underscore-templating' );
-
+		?>
+		<script type='text/javascript'>
+		/* <![CDATA[ */
+		var shoestrap = <?php echo json_encode( $shoestrap_data ); ?>;
+		/* ]]> */
+		</script>
+		<?php
 	}
 
 	public function templates_underscore() {

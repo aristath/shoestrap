@@ -11,14 +11,6 @@ class Shoestrap_Views {
 	private $views = array();
 
 	/**
-	 * An instance of the Shoestrap_Template object.
-	 *
-	 * @access private
-	 * @var null|object
-	 */
-	private $_template = null;
-
-	/**
 	 * The constructor.
 	 *
 	 * @param array $args The arguments for our view.
@@ -27,8 +19,7 @@ class Shoestrap_Views {
 
 		// Populate views.
 		$this->views = $this->add_views();
-		// Set the $_template property.
-		$this->_template = Shoestrap_Template::get_instance();
+
 		// Add the view.
 		$this->add_view( $args );
 
@@ -40,18 +31,23 @@ class Shoestrap_Views {
 	 * @param array $args The arguments for our view.
 	 */
 	private function add_view( $args ) {
+
 		// Early exit if 'tmpl' or 'id' are not set.
 		if ( ! isset( $args['tmpl'] ) || ! isset( $args['id'] ) ) {
 			return;
 		}
+
 		// Early exit if the defined template does not exist.
 		if ( ! array_key_exists( $args['tmpl'], $this->views ) ) {
 			return;
 		}
+
 		$view_args            = $this->views[ $args['tmpl'] ];
 		$view_args['tmpl']    = $args['tmpl'];
 		$view_args['element'] = '#' . $args['id'];
-		$this->_template->add_template( $view_args );
+
+		Shoestrap_Template::get_instance()->add_template( $view_args );
+
 	}
 
 	private function add_views() {
