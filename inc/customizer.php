@@ -24,3 +24,10 @@ function shoestrap_customize_preview_js() {
 	wp_enqueue_script( 'shoestrap_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'shoestrap_customize_preview_js' );
+
+include_once wp_normalize_path( get_template_directory() . '/inc/classes/class-shoestrap-kirki.php' );
+if ( class_exists( 'Shoestrap_Kirki' ) ) {
+	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/panels.php' );
+	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/sections.php' );
+	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/fields.php' );
+}
