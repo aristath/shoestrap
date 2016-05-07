@@ -39,3 +39,58 @@ if ( class_exists( 'Shoestrap_Kirki' ) ) {
 	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/sections.php' );
 	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/fields.php' );
 }
+
+function shoestrap_extra_styles( $css ) {
+	if ( ! class_exists( 'ariColor' ) ) {
+		include_once wp_normalize_path( get_template_directory() . '/inc/classes/class-aricolor.php' );
+	}
+	// Get the background color.
+	$_bg_color = get_theme_mod( 'background_color', '#fff' );
+	$bg_color  = ariColor::newColor( $_bg_color, 'hex' );
+
+	// Get the header background color.
+	$_header_bg_color = get_theme_mod( 'header_background_color', 'rgba(255,255,255,0)' );
+	$header_bg_color  = ariColor::newColor( $_header_bg_color, 'auto' );
+
+	// Get the primary color.
+	$_primary_color = get_theme_mod( 'primary_color', '#29b6fc' );
+	$primary_color  = ariColor::newColor( $_primary_color, 'hex' );
+
+	// Modify text color depending on the background.
+	if ( 50 > $bg_color->lightness ) {
+		$css['global']['body']['color'] = '#fff';
+		$css['global']['blockquote, blockquote p, cite, label']['color'] = '#dedede';
+	}
+
+	// Modify button text color depending on the primary color.
+	if ( 50 < $primary_color->lightness ) {
+		$css['global']['.top-bar li a, .top-bar li a:active, .top-bar li a:hover, .top-bar li a:visited, .top-bar li.menu-text']['color'] = '#333';
+		$css['global']['.menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#333';
+	}
+
+	// Modify the menu items color depending on the background.
+	if ( 1 > $header_bg_color->alpha ) {
+		$header_bg_color = ariColor::newColor(
+			array(
+				'red'   => ( $header_bg_color->red + $bg_color->red ) / 2,
+				'green' => ( $header_bg_color->green + $bg_color->green ) / 2,
+				'blue'  => ( $header_bg_color->blue + $bg_color->blue ) / 2,
+				'alpha' => ( $header_bg_color->alpha + 1 ) / 2,
+			),
+			'auto'
+		);
+	}
+	if ( 50 > $header_bg_color->lightness ) {
+		$css['global']['.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after']['border-color'] = '#fff transparent transparent';
+		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after']['border-color'] = 'transparent #fff transparent transparent';
+		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after']['border-color'] = 'transparent transparent transparent #fff';
+		$css['global']['.top-bar li.menu-text, .top-bar li a, .top-bar li a:hover, .top-bar li a:visited, .top-bar li a:active']['color'] = '#fff';
+	} else {
+		$css['global']['.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after']['border-color'] = '#333 transparent transparent';
+		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after']['border-color'] = 'transparent #333 transparent transparent';
+		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after']['border-color'] = 'transparent transparent transparent #333';
+		$css['global']['.top-bar li.menu-text, .top-bar li a, .top-bar li a:hover, .top-bar li a:visited, .top-bar li a:active']['color'] = '#333';
+	}
+	return $css;
+}
+add_filter( 'kirki/shoestrap/styles', 'shoestrap_extra_styles' );
