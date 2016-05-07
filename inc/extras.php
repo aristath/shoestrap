@@ -27,3 +27,21 @@ function shoestrap_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'shoestrap_body_classes' );
+
+/**
+ * Adds custom classes to the array of post claSSES.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function shoestrap_post_classes( $classes ) {
+
+	// Modify the "sticky" class to avoid conflicts with Foundation.
+	$sticky_key = array_search( 'sticky', $classes );
+	if ( false !== $sticky_key ) {
+		$classes[ $sticky_key ] = 'sticky-post';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'shoestrap_post_classes' );
