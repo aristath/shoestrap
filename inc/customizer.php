@@ -27,6 +27,14 @@ add_action( 'customize_preview_init', 'shoestrap_customize_preview_js' );
 
 include_once wp_normalize_path( get_template_directory() . '/inc/classes/class-shoestrap-kirki.php' );
 if ( class_exists( 'Shoestrap_Kirki' ) ) {
+
+	// Add the Configuration.
+	Shoestrap_Kirki::add_config( 'shoestrap', array(
+		'capability'  => 'edit_theme_options',
+		'option_type' => 'theme_mod',
+	));
+
+	// Include files for panels, section & fields.
 	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/panels.php' );
 	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/sections.php' );
 	include_once wp_normalize_path( get_template_directory() . '/inc/customizer/fields.php' );
