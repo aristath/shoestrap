@@ -21,5 +21,4 @@ class Shoestrap_Data {
 		return apply_filters( 'shoestrap/data', self::$data );
 
 	}
-
 }

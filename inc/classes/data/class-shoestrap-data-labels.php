@@ -9,5 +9,4 @@ class Shoestrap_Data_Post extends Shoestrap_Data {
 		));
 
 	}
-
 }

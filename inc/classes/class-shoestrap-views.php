@@ -74,5 +74,4 @@ class Shoestrap_Views {
 		);
 		return apply_filters( 'shoestrap/views', $views );
 	}
-
 }

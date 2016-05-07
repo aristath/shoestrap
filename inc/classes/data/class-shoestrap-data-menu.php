@@ -22,5 +22,4 @@ class Shoestrap_Data_Menu extends Shoestrap_Data {
 		}
 		return $menu_final;
 	}
-
 }

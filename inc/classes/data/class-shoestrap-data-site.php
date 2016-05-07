@@ -23,7 +23,5 @@ class Shoestrap_Data_Site extends Shoestrap_Data {
 			'name'                 => get_bloginfo( 'name' ),
 			'is_customize_preview' => is_customize_preview(),
 		);
-
 	}
-
 }

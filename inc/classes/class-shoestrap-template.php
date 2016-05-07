@@ -49,6 +49,7 @@ class Shoestrap_Template {
 	 * @param    $template_args    array
 	 */
 	public function add_template( $template_args = array() ) {
+
 		// Add empty defaults.
 		// We'll use these to detect errors and properly notify developers.
 		$defaults = array(
