@@ -49,6 +49,7 @@ class Shoestrap_Template {
 	 * @param    $template_args    array
 	 */
 	public function add_template( $template_args = array() ) {
+
 		// Add empty defaults.
 		// We'll use these to detect errors and properly notify developers.
 		$defaults = array(
@@ -65,14 +66,18 @@ class Shoestrap_Template {
 		if ( empty( $template_args['tmpl'] ) || empty( $template_args['path'] ) || empty( $template_args['element'] ) ) {
 			return;
 		}
+
 		// Sanitize the 'tmpl' argument
 		$template_args['tmpl'] = esc_attr( $template_args['tmpl'] );
+
 		// make sure the path is properly formatted
 		$template_args['path'] = wp_normalize_path( $template_args['path'] );
+
 		// If no data has been defined, set it to false
 		if ( ! isset( $template_args['data'] ) || empty( $template_args['data'] ) ) {
 			$template_args['data'] = false;
 		}
+
 		// Add our template to the global $args var.
 		self::$args[ $template_args['tmpl'] ] = $template_args;
 
@@ -101,7 +106,6 @@ class Shoestrap_Template {
 				error_log( $error->get_error_message() );
 			}
 		}
-
 	}
 
 	/**
@@ -113,5 +117,4 @@ class Shoestrap_Template {
 	public function get_templates() {
 		return self::$args;
 	}
-
 }

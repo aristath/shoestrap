@@ -4,6 +4,9 @@ class Shoestrap_Data_Menu extends Shoestrap_Data {
 
 	public static function get_menu( $menu ) {
 		$_menu = get_nav_menu_locations( $menu );
+		if ( ! isset( $_menu[ $menu ] ) ) {
+			return;
+		}
 		$menu_items = wp_get_nav_menu_items( $_menu[ $menu ] );
 		$menu_items = (array) $menu_items;
 		$menu_final = array();
@@ -19,5 +22,4 @@ class Shoestrap_Data_Menu extends Shoestrap_Data {
 		}
 		return $menu_final;
 	}
-
 }

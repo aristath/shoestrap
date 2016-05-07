@@ -47,5 +47,4 @@ class Shoestrap_Data_Conditionals extends Shoestrap_Data {
 		parent::$data = wp_parse_args( parent::$data, $conditionals );
 
 	}
-
 }

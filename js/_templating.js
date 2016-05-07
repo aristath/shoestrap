@@ -2,12 +2,12 @@ jQuery( document ).ready( function() {
 
 	_.each( shoestrap.templates, function( args, tmpl ) {
 
-		var post_template = wp.template( tmpl );
+		var postTemplate = wp.template( tmpl );
 
 		if ( false === args.data ) {
-			jQuery( args.element ).append( post_template( shoestrap.data ) );
+			jQuery( args.element ).append( postTemplate( shoestrap.data ) );
 		} else {
-			jQuery( args.element ).append( post_template( args.data ) );
+			jQuery( args.element ).append( postTemplate( args.data ) );
 		}
 
 	});

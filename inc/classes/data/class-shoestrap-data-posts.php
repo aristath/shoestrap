@@ -11,12 +11,11 @@ class Shoestrap_Data_Posts extends Shoestrap_Data {
 		foreach ( parent::$data['posts'] as $key => $post_data ) {
 			parent::$data['posts'][ $key ] = (array) $post_data;
 			parent::$data['posts'][ $key ]['permalink'] = get_permalink( parent::$data['posts'][ $key ]['ID'] );
+
 			// Do not expose the post password.
 			if ( isset( parent::$data['posts'][ $key ]['post_password'] ) ) {
 				unset( parent::$data['posts'][ $key ]['post_password'] );
 			}
 		}
-
 	}
-
 }

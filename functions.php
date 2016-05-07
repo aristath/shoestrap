@@ -160,8 +160,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Load underscore templates calls.
- */
-require get_template_directory() . '/inc/_templates.php';

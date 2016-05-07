@@ -9,7 +9,5 @@ class Shoestrap_Data_Title extends Shoestrap_Data {
 		} else {
 			parent::$data['the_title'] = get_the_archive_title();
 		}
-
 	}
-
 }

@@ -9,7 +9,7 @@ if ( ! function_exists( 'shoestrap_autoload_classes' ) ) {
 		$paths = array();
 		if ( 0 === stripos( $class_name, 'Shoestrap' ) ) {
 
-			$path     = wp_normalize_path( get_template_directory() . '/inc/' );
+			$path     = wp_normalize_path( get_template_directory() . '/inc/classes/' );
 			$filename = 'class-' . strtolower( str_replace( '_', '-', $class_name ) ) . '.php';
 
 			$paths[] = $path . $filename;
