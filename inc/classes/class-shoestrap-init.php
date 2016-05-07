@@ -14,7 +14,7 @@ class Shoestrap_Init {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'wp-util' );
+		wp_enqueue_script( 'shoestrap-underscore-templating', get_template_directory_uri() . '/js/_templating.js', array( 'jquery', 'wp-util' ), false, true );
 	}
 
 	public function add_data() {
@@ -29,9 +29,6 @@ class Shoestrap_Init {
 	public function template_underscore_script() {
 
 		$templates = Shoestrap_Template::get_instance()->get_templates();
-
-		// Register the script
-		wp_register_script( 'shoestrap-underscore-templating', get_template_directory_uri() . '/js/_templating.js', array( 'jquery' ), false, true );
 
 		// Get the global data
 		$data = Shoestrap_Data::get_data();
