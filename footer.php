@@ -26,8 +26,6 @@
 <script>
 jQuery( function() {
 	jQuery( document ).foundation();
-	Foundation.DropdownMenu.defaults['data-disable-hover'] = true;
-	jQuery( '.current-menu-item' ).addClass( 'active' );
 } );
 </script>
 </body>

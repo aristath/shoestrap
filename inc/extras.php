@@ -45,3 +45,13 @@ function shoestrap_post_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'post_class', 'shoestrap_post_classes' );
+
+function shoestrap_special_nav_class( $classes, $item, $args, $depth ) {
+	foreach( array( 'current-menu-item', 'current-menu-ancestor', 'current-menu-parent') as $class ) {
+		if ( in_array( $class, $classes ) ) {
+			$classes[] = 'active';
+		}
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_css_class' , 'shoestrap_special_nav_class' , 10 , 4 );
