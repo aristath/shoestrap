@@ -1,3 +1,7 @@
 // Include Foundation.
 @import '../vendor/foundation-sites/scss/foundation';
 @include foundation-everything(false);
+
+.top-bar ul {
+	background-color: transparent;
+}

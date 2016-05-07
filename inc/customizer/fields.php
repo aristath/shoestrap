@@ -1,15 +1,10 @@
 <?php
 
-Shoestrap_Kirki::add_field( array(
-	'type'        => 'dimension',
-	'settings'    => 'content_width',
-	'label'       => __( 'Content Width', 'shoestrap' ),
-	'section'     => 'layout',
-	'default'     => '85rem',
-	'priority'    => 10,
-	'transport'   => 'auto',
-	'output'      => array(
-		'element'  => '#content',
-		'property' => 'max-width',
-	),
-));
+$sections = array(
+	'colors',
+	'header',
+	'layout',
+);
+foreach ( $sections as $section ) {
+	get_template_part( 'inc/customizer/fields-' . $section );
+}
