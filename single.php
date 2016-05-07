@@ -10,7 +10,15 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main"></main>
+		<?php Shoestrap::add_view(
+			'main',
+			array(
+				'tmpl'  => 'shoestrap-single-post',
+				'id'    => 'main',
+				'class' => 'site-main',
+				'role'  => 'main'
+			)
+		); ?>
 		<div class="comments"><?php comments_template(); ?></div>
 	</div><!-- #primary -->
 
