@@ -3517,6 +3517,9 @@ table.hover tr:nth-of-type(even):hover {
 .top-bar ul {
   background-color: transparent; }
 
+.is-dropdown-submenu {
+  border: 1px solid transparent; }
+
 h1.site-title,
 span.site-title a,
 .menu-text {
