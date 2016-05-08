@@ -1,14 +1,3 @@
-<div class="row">
-	<div id="site-branding" class="site-branding">
-		<?php shoestrap_the_custom_logo(); ?>
-		<# if ( data.description || data.is_customize_preview ) { #>
-			<span class="site-description">{{ data.description }}</span>
-		<# } #>
-	</div>
-	<aside id="header-extra">
-		<?php dynamic_sidebar( 'header-1' ); ?>
-	</aside>
-</div>
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<div class="top-bar">
 		<div class="top-bar-right">

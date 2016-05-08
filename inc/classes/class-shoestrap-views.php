@@ -74,24 +74,26 @@ class Shoestrap_Views {
 	private function add_views() {
 
 		$views = array(
-			// Add template for the header
-			'shoestrap-site-header' => array(
-				'path'    => locate_template( 'views/header/simple.php' ),
-				'data'    => array(
+			// Branding
+			'shoestrap-site-branding' => array(
+				'path' => locate_template( 'views/branding.php' ),
+				'data' => array(
 					'is_front_page'        => is_front_page(),
 					'is_home'              => is_home(),
 					'name'                 => get_bloginfo( 'name' ),
 					'description'          => get_bloginfo( 'description', 'display' ),
 					'url'                  => home_url(),
 					'is_customize_preview' => is_customize_preview(),
-					'primary_menu_label'   => esc_html__( 'Primary Menu', 'shoestrap' ),
-					'menu'                 => Shoestrap_Data_Menu::get_menu( 'primary' ),
 				),
+			),
+			// Navbar.
+			'shoestrap-site-navbar' => array(
+				'path' => locate_template( 'views/navbar.php' ),
 			),
 			// Add template for single posts
 			'shoestrap-single-post' => array(
 				'path'    => locate_template( 'views/single.php' ),
-			)
+			),
 		);
 		return apply_filters( 'shoestrap/views', $views );
 	}

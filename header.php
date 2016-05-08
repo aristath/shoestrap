@@ -23,13 +23,11 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'shoestrap' ); ?></a>
-	<?php Shoestrap_Views::add_view(
-		'header',
-		array(
-			'tmpl'  => 'shoestrap-site-header',
-			'id'    => 'masthead',
-			'class' => 'site-header',
-			'role'  => 'banner'
-		)
-	); ?>
+	<?php
+	// Load the branding template
+	Shoestrap_Views::add_view( 'div', array( 'tmpl' => 'shoestrap-site-branding', 'id' => 'masthead', 'class' => 'site-header', 'role'  => 'banner' ) );
+
+	// Load the navbar template.
+	Shoestrap_Views::add_view( 'header', array( 'tmpl' => 'shoestrap-site-navbar', 'id' => 'site-main-navbar', 'class' => 'site-header', 'role' => 'banner' ) );
+	?>
 	<div id="content" class="site-content row">
