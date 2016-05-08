@@ -50,7 +50,7 @@ if ( ! class_exists( 'Kirki' ) ) {
 		 * Registers the section, setting & control for the kirki installer.
 		 */
 		function shoestrap_kirki_installer_register( $wp_customize ) {
-			// Add the section/
+			// Add the section.
 			// You can add your description here.
 			// Please note that the title will not be displayed.
 			$wp_customize->add_section( 'kirki_installer', array(
