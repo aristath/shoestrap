@@ -5,6 +5,9 @@
 			<span class="site-description">{{ data.description }}</span>
 		<# } #>
 	</div>
+	<aside id="header-extra">
+		<?php dynamic_sidebar( 'header-1' ); ?>
+	</aside>
 </div>
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<div class="top-bar">
