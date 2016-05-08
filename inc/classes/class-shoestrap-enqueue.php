@@ -1,6 +1,6 @@
 <?php
 
-class Shoestrap_Init {
+class Shoestrap_Enqueue {
 
 	/**
 	 * The constructor.
