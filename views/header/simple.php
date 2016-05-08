@@ -1,15 +1,13 @@
+<div class="row">
+	<div id="site-branding" class="site-branding">
+		<?php shoestrap_the_custom_logo(); ?>
+		<# if ( data.description || data.is_customize_preview ) { #>
+			<span class="site-description">{{ data.description }}</span>
+		<# } #>
+	</div>
+</div>
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<div class="top-bar">
-		<div id="site-branding" class="top-bar-left site-branding">
-			<ul class="dropdown menu" data-dropdown-menu>
-				<li class="menu-text">
-					<?php shoestrap_the_custom_logo(); ?>
-				</li>
-				<# if ( data.description || data.is_customize_preview ) { #>
-					<li class="menu-text site-description">{{ data.description }}</li>
-				<# } #>
-			</ul>
-		</div>
 		<div class="top-bar-right">
 			<ul data-responsive-toggle="primary-menu" data-hide-for="medium">
 				<button class="menu-icon" type="button" data-toggle>
