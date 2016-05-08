@@ -1,7 +1,7 @@
 <div class="row">
 	<div id="site-branding" class="site-branding columns">
-		<?php shoestrap_the_custom_logo(); ?>
-		<# if ( data.description || data.is_customize_preview ) { #>
+		<?php shoestrap_branding(); ?>
+		<# if ( data.show_tagline && ( data.description || data.is_customize_preview ) ) { #>
 			<span class="site-description">{{ data.description }}</span>
 		<# } #>
 	</div>

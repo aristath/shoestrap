@@ -7,24 +7,6 @@
 	ul {
 		background-color: transparent;
 	}
-	.custom-logo-link {
-		padding: 0;
-		img {
-			max-height: 1rem;
-			width: auto;
-		}
-	}
-	h1.site-title,
-	span.site-title a,
-	.menu-text {
-		font-size: 1rem;
-		margin-bottom: 0;
-		margin-top: 0;
-		font-weight: normal;
-	}
-	.menu-text {
-		font-size: .75rem;
-	}
 }
 
 #site-main-nav-pills {
@@ -33,6 +15,12 @@
 			margin: auto;
 		}
 	}
+}
+
+#masthead .branding-text .site-title {
+	font-size: 2rem;
+	margin-top: .3rem;
+	margin-bottom: .3rem;
 }
 
 .is-dropdown-submenu {

@@ -46,19 +46,23 @@ function shoestrap_post_classes( $classes ) {
 }
 add_filter( 'post_class', 'shoestrap_post_classes' );
 
-function shoestrap_the_custom_logo() {
-	$custom_logo_id = get_theme_mod( 'custom_logo' );
+function shoestrap_branding() {
+	?>
+	<?php if ( function_exists( 'the_custom_logo' ) ) : ?>
+		<?php the_custom_logo(); ?>
+	<?php endif; ?>
 
-	$site_title_classes = 'site-title';
-	if ( function_exists( 'the_custom_logo' ) ) {
-		echo get_custom_logo();
-		if ( $custom_logo_id ) {
-			$site_title_classes .= ' screen-reader-text';
-		}
-	}
-	if ( is_front_page() && is_home() ) {
-		echo '<h1 class="' . $site_title_classes . '"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></h1>';
-	} else {
-		echo '<span class="' . $site_title_classes . '"><a href="' . home_url() . '" rel="home">' . get_bloginfo( 'name' ) . '</a></span>';
-	}
+	<?php if ( false != get_theme_mod( 'display_branding_sitename', true ) ) : ?>
+		<div class="branding-text">
+			<?php if ( is_front_page() && is_home() ) : ?>
+				<h1 class="site-title">
+					<a href="<?php echo home_url(); ?>" rel="home"><?php echo get_bloginfo( 'name' ); ?></a>
+				</h1>
+			<?php else : ?>
+				<span class="site-title">
+					<a href="<?php echo home_url(); ?>" rel="home"><?php echo get_bloginfo( 'name' ); ?></a>
+				</span>
+			<?php endif; ?>
+		</div>
+	<?php endif;
 }

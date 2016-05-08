@@ -84,6 +84,7 @@ class Shoestrap_Views {
 					'description'          => get_bloginfo( 'description', 'display' ),
 					'url'                  => home_url(),
 					'is_customize_preview' => is_customize_preview(),
+					'show_tagline'         => ( false != get_theme_mod( 'display_branding_tagline', false ) ) ? true : false,
 				),
 			),
 			// Navigation - navbar.

@@ -36,3 +36,21 @@ Shoestrap_Kirki::add_field( array(
 		),
 	),
 ));
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'toggle',
+	'settings'    => 'display_branding_sitename',
+	'label'       => __( 'Display Site Title', 'shoestrap' ),
+	'section'     => 'title_tagline',
+	'default'     => '1',
+	'priority'    => 11,
+));
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'toggle',
+	'settings'    => 'display_branding_tagline',
+	'label'       => __( 'Display Tagline', 'shoestrap' ),
+	'section'     => 'title_tagline',
+	'default'     => '0',
+	'priority'    => 11,
+));
