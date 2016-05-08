@@ -89,8 +89,6 @@ function shoestrap_setup() {
 
 	// Enable logo support.
 	add_theme_support( 'custom-logo', array(
-		'height'      => 100,
-		'width'       => 400,
 		'flex-width' => true,
 	) );
 }
