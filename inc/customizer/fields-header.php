@@ -8,6 +8,7 @@ Shoestrap_Kirki::add_field( array(
 	'default'     => 'navbar',
 	'priority'    => 10,
 	'choices'     => array(
+		'none'    => esc_attr__( 'None', 'shoestrap' ),
 		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
 		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
 	),
@@ -81,6 +82,13 @@ Shoestrap_Kirki::add_field( array(
 				'#site-main-nav-navbar'
 			),
 			'property' => 'margin',
+		),
+	),
+	'active_callback' => array(
+		array(
+			'setting'  => 'navigation_mode',
+			'operator' => '!=',
+			'value'    => 'none',
 		),
 	),
 ) );
