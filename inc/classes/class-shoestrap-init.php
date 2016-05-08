@@ -10,6 +10,9 @@ class Shoestrap_Init {
 		// Instantiates the Kirki_Enqueue object.
 		new Shoestrap_Enqueue();
 
+		// Apply filters to menus.
+		new Shoestrap_Menu_Filters();
+
 		// Adjust the content-width.
 		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );
 
