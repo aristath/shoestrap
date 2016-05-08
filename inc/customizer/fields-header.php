@@ -1,6 +1,19 @@
 <?php
 
 Shoestrap_Kirki::add_field( array(
+	'type'        => 'radio-buttonset',
+	'settings'    => 'navigation_mode',
+	'label'       => __( 'Navigation Mode', 'shoestrap' ),
+	'section'     => 'header',
+	'default'     => 'navbar',
+	'priority'    => 10,
+	'choices'     => array(
+		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
+		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
+	),
+));
+
+Shoestrap_Kirki::add_field( array(
 	'type'        => 'color',
 	'settings'    => 'header_background_color',
 	'label'       => __( 'Menu Background', 'shoestrap' ),
@@ -20,18 +33,12 @@ Shoestrap_Kirki::add_field( array(
 			'property' => 'background',
 		),
 	),
-));
-
-Shoestrap_Kirki::add_field( array(
-	'type'        => 'radio-buttonset',
-	'settings'    => 'navigation_mode',
-	'label'       => __( 'Navigation Mode', 'shoestrap' ),
-	'section'     => 'header',
-	'default'     => 'navbar',
-	'priority'    => 10,
-	'choices'     => array(
-		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
-		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
+	'active_callback' => array(
+		array(
+			'setting'  => 'navigation_mode',
+			'operator' => '==',
+			'value'    => 'navbar',
+		),
 	),
 ));
 
@@ -55,3 +62,25 @@ Shoestrap_Kirki::add_field( array(
 		),
 	),
 ));
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'spacing',
+	'settings'    => 'main_nav_margins',
+	'label'       => __( 'Navigation Top & Bottom Margins', 'shoestrap' ),
+	'section'     => 'header',
+	'transport'   => 'auto',
+	'default'     => array(
+		'top'     => '1.5rem',
+		'bottom'  => '1.5rem',
+	),
+	'priority'    => 10,
+	'output'      => array(
+		array(
+			'element'  => array(
+				'#site-main-nav-pills',
+				'#site-main-nav-navbar'
+			),
+			'property' => 'margin',
+		),
+	),
+) );

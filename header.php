@@ -29,6 +29,6 @@
 
 	// Load the navigation template.
 	$nav_mode = get_theme_mod( 'navigation_mode', 'navbar' );
-	Shoestrap_Views::add_view( 'header', array( 'tmpl' => 'shoestrap-site-nav-' . $nav_mode, 'id' => 'site-main-' . $nav_mode, 'class' => 'site-header', 'role' => 'banner' ) );
+	Shoestrap_Views::add_view( 'header', array( 'tmpl' => 'shoestrap-site-nav-' . $nav_mode, 'id' => 'site-main-nav-' . $nav_mode, 'class' => 'site-header', 'role' => 'banner' ) );
 	?>
 	<div id="content" class="site-content row">
