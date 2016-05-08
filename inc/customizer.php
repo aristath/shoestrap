@@ -58,16 +58,49 @@ function shoestrap_extra_styles( $css ) {
 	// Modify text color depending on the background.
 	if ( 50 > $bg_color->lightness ) {
 		$css['global']['body']['color'] = '#fff';
-		$css['global']['blockquote, blockquote p, cite, label']['color'] = '#dedede';
+		$elements = array(
+			'blockquote',
+			'blockquote p',
+			'cite',
+			'label',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#dedede';
 	}
 
 	// Modify button text color depending on the primary color.
 	if ( 50 < $primary_color->lightness ) {
-		$css['global']['.top-bar li a, .top-bar li a:active, .top-bar li a:hover, .top-bar li a:visited, .top-bar li.menu-text']['color'] = '#333';
-		$css['global']['.top-bar .menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#333';
+		$elements = array(
+			'.top-bar li a',
+			'.top-bar li a:active',
+			'.top-bar li a:hover',
+			'.top-bar li a:visited',
+			'.top-bar li.menu-text',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#333';
+		$elements = array(
+			'.top-bar .menu .active > a',
+			'button',
+			'html input[type="button"]',
+			'input[type="reset"]',
+			'input[type="submit"]',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#333';
 	} else {
-		$css['global']['.top-bar li a, .top-bar li a:active, .top-bar li a:hover, .top-bar li a:visited, .top-bar li.menu-text']['color'] = '#fff';
-		$css['global']['.top-bar .menu .active > a, button, html input[type="button"], input[type="reset"], input[type="submit"]']['color'] = '#fff';
+		$elements = array(
+			'.top-bar li a',
+			'.top-bar li a:active',
+			'.top-bar li a:hover',
+			'.top-bar li a:visited',
+			'.top-bar li.menu-text',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#fff';
+		$elements = array(
+			'.top-bar .menu .active > a',
+			'button, html input[type="button"]',
+			'input[type="reset"]',
+			'input[type="submit"]',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#fff';
 	}
 
 	// Modify the menu items color depending on the background.
@@ -76,15 +109,51 @@ function shoestrap_extra_styles( $css ) {
 		$header_bg_color_lightness = ( ( $header_bg_color->lightness * $header_bg_color->alpha ) + $bg_color->lightness ) / 2;
 	}
 	if ( 50 > $header_bg_color->lightness ) {
-		$css['global']['.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after']['border-color'] = '#fff transparent transparent';
-		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after']['border-color'] = 'transparent #fff transparent transparent';
-		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after']['border-color'] = 'transparent transparent transparent #fff';
-		$css['global']['.top-bar li.menu-text, .top-bar li a, .top-bar li a:hover, .top-bar li a:visited, .top-bar li a:active']['color'] = '#fff';
+		$elements = array(
+			'.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after',
+			'.dropdown.menu > li.is-dropdown-submenu-parent > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = '#fff transparent transparent';
+		$elements = array(
+			'.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = 'transparent #fff transparent transparent';
+		$elements = array(
+			'.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = 'transparent transparent transparent #fff';
+		$elements = array(
+			'.top-bar li.menu-text, .top-bar li a',
+			'.top-bar li a:hover',
+			'.top-bar li a:visited',
+			'.top-bar li a:active',
+			'.dropdown.menu > li.is-dropdown-submenu-parent > a',
+			'.menu > li > a',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#fff';
 	} else {
-		$css['global']['.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after']['border-color'] = '#333 transparent transparent';
-		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after']['border-color'] = 'transparent #333 transparent transparent';
-		$css['global']['.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after']['border-color'] = 'transparent transparent transparent #333';
-		$css['global']['.top-bar li.menu-text, .top-bar li a, .top-bar li a:hover, .top-bar li a:visited, .top-bar li a:active']['color'] = '#333';
+		$elements = array(
+			'.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after',
+			'.dropdown.menu > li.is-dropdown-submenu-parent > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = '#333 transparent transparent';
+		$elements = array(
+			'.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = 'transparent #333 transparent transparent';
+		$elements = array(
+			'.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after',
+		);
+		$css['global'][ implode( ',', $elements ) ]['border-color'] = 'transparent transparent transparent #333';
+		$elements = array(
+			'.top-bar li.menu-text, .top-bar li a',
+			'.top-bar li a:hover',
+			'.top-bar li a:visited',
+			'.top-bar li a:active',
+			'.dropdown.menu > li.is-dropdown-submenu-parent > a',
+			'.menu > li > a',
+		);
+		$css['global'][ implode( ',', $elements ) ]['color'] = '#333';
 	}
 	return $css;
 }

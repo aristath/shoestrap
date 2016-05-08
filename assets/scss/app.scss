@@ -3,6 +3,7 @@
 @include foundation-everything(false);
 
 .top-bar {
+	margin: auto;
 	ul {
 		background-color: transparent;
 	}
@@ -12,9 +13,6 @@
 			max-height: 1rem;
 			width: auto;
 		}
-	}
-	.is-dropdown-submenu {
-		border: 1px solid transparent;
 	}
 	h1.site-title,
 	span.site-title a,
@@ -27,6 +25,18 @@
 	.menu-text {
 		font-size: .75rem;
 	}
+}
+
+#site-main-nav-pills {
+	#site-navigation {
+		#primary-menu {
+			margin: auto;
+		}
+	}
+}
+
+.is-dropdown-submenu {
+	border: 1px solid transparent;
 }
 
 button,

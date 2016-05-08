@@ -10,7 +10,11 @@ Shoestrap_Kirki::add_field( array(
 	'transport'   => 'auto',
 	'output'      => array(
 		array(
-			'element'  => '#content',
+			'element'  => array(
+				'#content',
+				'.top-bar',
+				'#site-main-nav-pills #site-navigation #primary-menu',
+			),
 			'property' => 'max-width',
 		),
 	),

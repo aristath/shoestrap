@@ -28,17 +28,12 @@ Shoestrap_Kirki::add_field( array(
 	'output'      => array(
 		array(
 			'element'  => array(
+				'#site-navigation',
 				'.top-bar',
 				'.top-bar ul.submenu',
+				'.is-dropdown-submenu',
 			),
 			'property' => 'background',
-		),
-	),
-	'active_callback' => array(
-		array(
-			'setting'  => 'navigation_mode',
-			'operator' => '==',
-			'value'    => 'navbar',
 		),
 	),
 ));
