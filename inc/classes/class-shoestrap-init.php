@@ -15,26 +15,13 @@ class Shoestrap_Init {
 	 */
 	public function __construct() {
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+		// Instantiates the Kirki_Enqueue object.
+		new Kirki_Enqueue();
+
 		add_action( 'shoestrap/data/before', array( $this, 'add_data' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'templates_underscore' ), 26 );
 		add_action( 'wp_print_footer_scripts', array( $this, 'template_underscore_script' ), 25 );
 
-	}
-
-	/**
-	 * Enqueue scrips.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		wp_enqueue_script(
-			'shoestrap-underscore-templating',
-			trailingslashit( get_template_directory_uri() ) . 'assets/js/_templating.js',
-			array( 'jquery', 'wp-util' ),
-			false,
-			true
-		);
 	}
 
 	/**
