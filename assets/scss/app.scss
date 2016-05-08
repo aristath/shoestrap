@@ -48,3 +48,11 @@ table tbody tr:nth-child(even) {
 table thead, table tbody, table tfoot {
 	border: 1px solid rgba(0,0,0,.75);
 }
+
+.tiled-gallery {
+	> .gallery-row {
+		> .gallery-group {
+			float: left;
+		}
+	}
+}
