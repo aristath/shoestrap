@@ -94,9 +94,13 @@ class Shoestrap_Views {
 			'shoestrap-site-nav-pills' => array(
 				'path' => locate_template( 'views/navigation-pills.php' ),
 			),
-			// Add template for single posts
+			// Single posts.
 			'shoestrap-single-post' => array(
 				'path' => locate_template( 'views/single.php' ),
+			),
+			// Sidebar.
+			'shoestrap-site-sidebar' => array(
+				'path' => locate_template( 'views/sidebar.php' ),
 			),
 		);
 		return apply_filters( 'shoestrap/views', $views );
