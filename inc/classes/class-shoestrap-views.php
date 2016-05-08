@@ -86,13 +86,17 @@ class Shoestrap_Views {
 					'is_customize_preview' => is_customize_preview(),
 				),
 			),
-			// Navbar.
-			'shoestrap-site-navbar' => array(
-				'path' => locate_template( 'views/navbar.php' ),
+			// Navigation - navbar.
+			'shoestrap-site-nav-navbar' => array(
+				'path' => locate_template( 'views/navigation-navbar.php' ),
+			),
+			// Navigation - pills.
+			'shoestrap-site-nav-pills' => array(
+				'path' => locate_template( 'views/navigation-pills.php' ),
 			),
 			// Add template for single posts
 			'shoestrap-single-post' => array(
-				'path'    => locate_template( 'views/single.php' ),
+				'path' => locate_template( 'views/single.php' ),
 			),
 		);
 		return apply_filters( 'shoestrap/views', $views );

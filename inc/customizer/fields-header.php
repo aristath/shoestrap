@@ -21,3 +21,37 @@ Shoestrap_Kirki::add_field( array(
 		),
 	),
 ));
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'radio-buttonset',
+	'settings'    => 'navigation_mode',
+	'label'       => __( 'Navigation Mode', 'shoestrap' ),
+	'section'     => 'header',
+	'default'     => 'navbar',
+	'priority'    => 10,
+	'choices'     => array(
+		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
+		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
+	),
+));
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'dashicons',
+	'settings'    => 'nav_pills_align',
+	'label'       => __( 'Pills alignment', 'shoestrap' ),
+	'section'     => 'header',
+	'default'     => 'center',
+	'priority'    => 10,
+	'choices'     => array(
+		'left'    => 'editor-alignleft',
+		'center'  => 'editor-aligncenter',
+		'right'   => 'editor-alignright',
+	),
+	'active_callback' => array(
+		array(
+			'setting'  => 'navigation_mode',
+			'operator' => '==',
+			'value'    => 'pills',
+		),
+	),
+));
