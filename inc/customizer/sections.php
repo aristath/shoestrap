@@ -15,3 +15,8 @@ Shoestrap_Kirki::add_section( 'header', array(
 	'priority'    => 10,
 	'title'       => esc_attr__( 'Header', 'shoestrap' ),
 ));
+
+Shoestrap_Kirki::add_section( 'typography', array(
+	'priority'    => 10,
+	'title'       => esc_attr__( 'Typography', 'shoestrap' ),
+));
