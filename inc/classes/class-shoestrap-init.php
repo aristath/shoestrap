@@ -11,7 +11,7 @@ class Shoestrap_Init {
 		new Shoestrap_Enqueue();
 
 		// Apply filters to menus.
-		new Shoestrap_Menu_Filters();
+		new Shoestrap_Menu_Extras();
 
 		// Adjust the content-width.
 		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );

@@ -1,6 +1,6 @@
 <?php
 
-class Shoestrap_Menu_Filters {
+class Shoestrap_Menu_Extras {
 
 	/**
 	 * Constructor.
