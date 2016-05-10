@@ -19,6 +19,9 @@ function shoestrap_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	// Adds a class depending on the header-type.
+	$classes[] = 'header-' . get_theme_mod( 'header_mode', 'top-navbar' );
+
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
