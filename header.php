@@ -25,10 +25,11 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'shoestrap' ); ?></a>
 	<?php
 	// Load the branding template
-	Shoestrap_Views::add_view( 'div', array( 'tmpl' => 'shoestrap-site-branding', 'id' => 'masthead', 'class' => 'site-header', 'role'  => 'banner' ) );
+	$header_position = get_theme_mod( 'header_position', 'top' );
+	Shoestrap_Views::add_view( 'div', array( 'tmpl' => 'shoestrap-site-branding-' . $header_position, 'id' => 'masthead', 'class' => 'site-header', 'role'  => 'banner' ) );
 
 	// Load the navigation template.
 	$nav_mode = get_theme_mod( 'navigation_mode_top', 'navbar' );
-	Shoestrap_Views::add_view( 'header', array( 'tmpl' => 'shoestrap-site-nav-' . $nav_mode, 'id' => 'site-main-nav-' . $nav_mode, 'class' => 'site-header', 'role' => 'banner' ) );
+	Shoestrap_Views::add_view( 'header', array( 'tmpl' => 'shoestrap-site-nav-' . $header_position . '-' . $nav_mode, 'id' => 'site-main-nav-' . $nav_mode, 'class' => 'site-header', 'role' => 'banner' ) );
 	?>
 	<div id="content" class="site-content row">

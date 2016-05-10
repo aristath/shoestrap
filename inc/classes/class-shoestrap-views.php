@@ -75,8 +75,8 @@ class Shoestrap_Views {
 
 		$views = array(
 			// Branding
-			'shoestrap-site-branding' => array(
-				'path' => locate_template( 'views/branding.php' ),
+			'shoestrap-site-branding-top' => array(
+				'path' => locate_template( 'views/branding-top.php' ),
 				'data' => array(
 					'is_front_page'        => is_front_page(),
 					'is_home'              => is_home(),
@@ -87,13 +87,17 @@ class Shoestrap_Views {
 					'show_tagline'         => ( false != get_theme_mod( 'display_branding_tagline', false ) ) ? true : false,
 				),
 			),
-			// Navigation - navbar.
-			'shoestrap-site-nav-navbar' => array(
-				'path' => locate_template( 'views/navigation-navbar.php' ),
+			// Navigation - Top navbar.
+			'shoestrap-site-nav-top-navbar' => array(
+				'path' => locate_template( 'views/navigation-top-navbar.php' ),
 			),
-			// Navigation - pills.
-			'shoestrap-site-nav-pills' => array(
-				'path' => locate_template( 'views/navigation-pills.php' ),
+			// Navigation - Top pills.
+			'shoestrap-site-nav-top-pills' => array(
+				'path' => locate_template( 'views/navigation-top-pills.php' ),
+			),
+			// Navigation - Top none.
+			'shoestrap-site-nav-top-none' => array(
+				'path' => locate_template( 'views/navigation-top-none.php' ),
 			),
 			// Single posts.
 			'shoestrap-single-post' => array(
