@@ -25,6 +25,15 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'shoestrap' ); ?></a>
 	<?php
 	/**
+	 * The 'shoestrap/header/before' action.
+	 * You can use this to add content before the header
+	 * Or wrapper elements if needed,
+	 * in case you're using an off-canvas navigation model.
+	 */
+	do_action( 'shoestrap/header/before' ); ?>
+	?>
+	<?php
+	/**
 	 * Load the header template.
 	 */
 	$header_mode = get_theme_mod( 'header_mode', 'top-navbar' );
