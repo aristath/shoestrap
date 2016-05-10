@@ -1,37 +1,16 @@
 <?php
 
 Shoestrap_Kirki::add_field( array(
-	'type'        => 'radio-buttonset',
-	'settings'    => 'header_position',
-	'label'       => __( 'Header Location', 'shoestrap' ),
+	'type'        => 'select',
+	'settings'    => 'header_mode',
+	'label'       => __( 'Header Mode', 'shoestrap' ),
 	'section'     => 'header',
-	'default'     => 'top',
+	'default'     => 'top-navbar',
 	'priority'    => 10,
 	'choices'     => array(
-		'top'     => esc_attr__( 'Top', 'shoestrap' ),
-		'left'    => esc_attr__( 'Left', 'shoestrap' ),
-		'right'   => esc_attr__( 'Right', 'shoestrap' ),
-	),
-));
-
-Shoestrap_Kirki::add_field( array(
-	'type'        => 'radio-buttonset',
-	'settings'    => 'navigation_mode_top',
-	'label'       => __( 'Navigation Mode', 'shoestrap' ),
-	'section'     => 'header',
-	'default'     => 'navbar',
-	'priority'    => 10,
-	'choices'     => array(
-		'none'    => esc_attr__( 'None', 'shoestrap' ),
-		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
-		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
-	),
-	'active_callback' => array(
-		array(
-			'setting'  => 'header_position',
-			'operator' => '==',
-			'value'    => 'top',
-		),
+		'none'       => esc_attr__( 'None', 'shoestrap' ),
+		'top-navbar' => esc_attr__( 'Top Navbar', 'shoestrap' ),
+		'top-pills'  => esc_attr__( 'Top Pills', 'shoestrap' ),
 	),
 ));
 
@@ -71,18 +50,6 @@ Shoestrap_Kirki::add_field( array(
 		'center'  => 'editor-aligncenter',
 		'right'   => 'editor-alignright',
 	),
-	'active_callback' => array(
-		array(
-			'setting'  => 'header_position',
-			'operator' => '==',
-			'value'    => 'top',
-		),
-		array(
-			'setting'  => 'navigation_mode_top',
-			'operator' => '==',
-			'value'    => 'pills',
-		),
-	),
 ));
 
 Shoestrap_Kirki::add_field( array(
@@ -103,18 +70,6 @@ Shoestrap_Kirki::add_field( array(
 				'#site-main-nav-navbar'
 			),
 			'property' => 'margin',
-		),
-	),
-	'active_callback' => array(
-		array(
-			'setting'  => 'header_position',
-			'operator' => '==',
-			'value'    => 'top',
-		),
-		array(
-			'setting'  => 'navigation_mode_top',
-			'operator' => '!=',
-			'value'    => 'none',
 		),
 	),
 ) );

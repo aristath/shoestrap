@@ -74,9 +74,8 @@ class Shoestrap_Views {
 	private function add_views() {
 
 		$views = array(
-			// Branding
-			'shoestrap-site-branding-top' => array(
-				'path' => locate_template( 'views/branding-top.php' ),
+			'shoestrap-site-header-top-navbar' => array(
+				'path' => locate_template( 'views/header-top-navbar.php' ),
 				'data' => array(
 					'is_front_page'        => is_front_page(),
 					'is_home'              => is_home(),
@@ -87,23 +86,24 @@ class Shoestrap_Views {
 					'show_tagline'         => ( false != get_theme_mod( 'display_branding_tagline', false ) ) ? true : false,
 				),
 			),
-			// Navigation - Top navbar.
-			'shoestrap-site-nav-top-navbar' => array(
-				'path' => locate_template( 'views/navigation-top-navbar.php' ),
+			'shoestrap-site-header-top-pills' => array(
+				'path' => locate_template( 'views/header-top-pills.php' ),
+				'data' => array(
+					'is_front_page'        => is_front_page(),
+					'is_home'              => is_home(),
+					'name'                 => get_bloginfo( 'name' ),
+					'description'          => get_bloginfo( 'description', 'display' ),
+					'url'                  => home_url(),
+					'is_customize_preview' => is_customize_preview(),
+					'show_tagline'         => ( false != get_theme_mod( 'display_branding_tagline', false ) ) ? true : false,
+				),
 			),
-			// Navigation - Top pills.
-			'shoestrap-site-nav-top-pills' => array(
-				'path' => locate_template( 'views/navigation-top-pills.php' ),
+			'shoestrap-site-header-none' => array(
+				'path' => locate_template( 'views/empty.php' ),
 			),
-			// Navigation - Top none.
-			'shoestrap-site-nav-top-none' => array(
-				'path' => locate_template( 'views/navigation-top-none.php' ),
-			),
-			// Single posts.
 			'shoestrap-single-post' => array(
 				'path' => locate_template( 'views/single.php' ),
 			),
-			// Sidebar.
 			'shoestrap-site-sidebar' => array(
 				'path' => locate_template( 'views/sidebar.php' ),
 			),
