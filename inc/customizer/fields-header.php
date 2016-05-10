@@ -2,6 +2,21 @@
 
 Shoestrap_Kirki::add_field( array(
 	'type'        => 'radio-buttonset',
+	'settings'    => 'header_location',
+	'label'       => __( 'Header Location', 'shoestrap' ),
+	'section'     => 'header',
+	'default'     => 'top',
+	'priority'    => 10,
+	'choices'     => array(
+		'top'     => esc_attr__( 'Top', 'shoestrap' ),
+		'left'    => esc_attr__( 'Left', 'shoestrap' ),
+		'right'   => esc_attr__( 'Right', 'shoestrap' ),
+	),
+));
+
+
+Shoestrap_Kirki::add_field( array(
+	'type'        => 'radio-buttonset',
 	'settings'    => 'navigation_mode',
 	'label'       => __( 'Navigation Mode', 'shoestrap' ),
 	'section'     => 'header',
