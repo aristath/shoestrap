@@ -11,7 +11,7 @@ var gulp         = require( 'gulp' ),
 
 // Compile Sass & Autoprefix.
 gulp.task( 'styles', function() {
-	return gulp.src( './assets/scss/app.scss' )
+	return gulp.src( './assets/scss/*.scss' )
 		.pipe( plumber( function( error ) {
 			gutil.log( gutil.colors.red( error.message ) );
 			this.emit( 'end' );
@@ -65,7 +65,7 @@ gulp.task( 'bower', function() {
 gulp.task( 'watch', function() {
 
 	// Watch .scss files
-	gulp.watch( './assets/scss/**/*.scss', ['styles'] );
+	gulp.watch( './assets/scss/*.scss', ['styles'] );
 
 	// Watch site-js files
 	gulp.watch( './assets/js/scripts/*.js', ['site-js'] );

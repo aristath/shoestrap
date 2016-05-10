@@ -26,6 +26,11 @@ class Shoestrap_Enqueue {
 			'shoestrap-app',
 			trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/app.css'
 		);
+		$header_mode = get_theme_mod( 'header_mode', 'top-navbar' );
+		wp_enqueue_style(
+			'shoestrap-header-' . $header_mode,
+			trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/header-' . $header_mode . '.css'
+		);
 		wp_enqueue_script(
 			'shoestrap-skip-link-focus-fix',
 			trailingslashit( get_template_directory_uri() ) . 'assets/js/skip-link-focus-fix.js',

@@ -2,31 +2,6 @@
 @import '../vendor/foundation-sites/scss/foundation';
 @include foundation-everything(false);
 
-.top-bar {
-	margin: auto;
-	ul {
-		background-color: transparent;
-	}
-}
-
-#site-main-nav-pills {
-	#site-navigation {
-		#primary-menu {
-			margin: auto;
-		}
-	}
-}
-
-#masthead .branding-text .site-title {
-	font-size: 2rem;
-	margin-top: .3rem;
-	margin-bottom: .3rem;
-}
-
-.is-dropdown-submenu {
-	border: 1px solid transparent;
-}
-
 button,
 html input[type="button"],
 input[type="reset"],

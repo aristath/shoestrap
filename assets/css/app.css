@@ -3514,22 +3514,6 @@ table.hover tr:nth-of-type(even):hover {
 .clearfix::after {
   clear: both; }
 
-.top-bar {
-  margin: auto; }
-  .top-bar ul {
-    background-color: transparent; }
-
-#site-main-nav-pills #site-navigation #primary-menu {
-  margin: auto; }
-
-#masthead .branding-text .site-title {
-  font-size: 2rem;
-  margin-top: .3rem;
-  margin-bottom: .3rem; }
-
-.is-dropdown-submenu {
-  border: 1px solid transparent; }
-
 button,
 html input[type="button"],
 input[type="reset"],
