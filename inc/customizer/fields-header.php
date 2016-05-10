@@ -7,11 +7,11 @@ Shoestrap_Kirki::add_field( array(
 	'section'     => 'header',
 	'default'     => 'top-navbar',
 	'priority'    => 10,
-	'choices'     => array(
+	'choices'     => apply_filters( 'shoestrap/settings/header_mode/choices', array(
 		'none'       => esc_attr__( 'None', 'shoestrap' ),
 		'top-navbar' => esc_attr__( 'Top Navbar', 'shoestrap' ),
 		'top-pills'  => esc_attr__( 'Top Pills', 'shoestrap' ),
-	),
+	)),
 ));
 
 Shoestrap_Kirki::add_field( array(
