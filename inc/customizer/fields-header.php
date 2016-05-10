@@ -2,7 +2,7 @@
 
 Shoestrap_Kirki::add_field( array(
 	'type'        => 'radio-buttonset',
-	'settings'    => 'header_location',
+	'settings'    => 'header_position',
 	'label'       => __( 'Header Location', 'shoestrap' ),
 	'section'     => 'header',
 	'default'     => 'top',
@@ -14,10 +14,9 @@ Shoestrap_Kirki::add_field( array(
 	),
 ));
 
-
 Shoestrap_Kirki::add_field( array(
 	'type'        => 'radio-buttonset',
-	'settings'    => 'navigation_mode',
+	'settings'    => 'navigation_mode_top',
 	'label'       => __( 'Navigation Mode', 'shoestrap' ),
 	'section'     => 'header',
 	'default'     => 'navbar',
@@ -26,6 +25,13 @@ Shoestrap_Kirki::add_field( array(
 		'none'    => esc_attr__( 'None', 'shoestrap' ),
 		'navbar'  => esc_attr__( 'Navbar', 'shoestrap' ),
 		'pills'   => esc_attr__( 'Pills', 'shoestrap' ),
+	),
+	'active_callback' => array(
+		array(
+			'setting'  => 'header_position',
+			'operator' => '==',
+			'value'    => 'top',
+		),
 	),
 ));
 
@@ -67,7 +73,12 @@ Shoestrap_Kirki::add_field( array(
 	),
 	'active_callback' => array(
 		array(
-			'setting'  => 'navigation_mode',
+			'setting'  => 'header_position',
+			'operator' => '==',
+			'value'    => 'top',
+		),
+		array(
+			'setting'  => 'navigation_mode_top',
 			'operator' => '==',
 			'value'    => 'pills',
 		),
@@ -96,7 +107,12 @@ Shoestrap_Kirki::add_field( array(
 	),
 	'active_callback' => array(
 		array(
-			'setting'  => 'navigation_mode',
+			'setting'  => 'header_position',
+			'operator' => '==',
+			'value'    => 'top',
+		),
+		array(
+			'setting'  => 'navigation_mode_top',
 			'operator' => '!=',
 			'value'    => 'none',
 		),
