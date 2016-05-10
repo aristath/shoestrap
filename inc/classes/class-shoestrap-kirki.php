@@ -79,6 +79,11 @@ class Shoestrap_Kirki {
 	public static function add_config( $config_id, $args = array() ) {
 		// if Kirki exists, use it.
 		if ( class_exists( 'Kirki' ) ) {
+			if ( isset( $args['settings'] ) ) {
+				foreach ( $args as $arg_id => $arg_params ) {
+					$args[ $arg_id ] = apply_filters( 'shoestrap/settings/' . $args['settings'] . '/' . $arg_id, $arg_params );
+				}
+			}
 			Kirki::add_config( $config_id, $args );
 			return;
 		}
